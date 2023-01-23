@@ -49,7 +49,8 @@ defmodule AshAuthPhoenixExample.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:ash, "~> 2.5.9"},
-      {:elixir_sense, github: "elixir-lsp/elixir_sense", only: [:dev, :test]}
+      {:elixir_sense, github: "elixir-lsp/elixir_sense", only: [:dev, :test]},
+      {:ash_postgres, "~> 1.3.2"}
     ]
   end
 
