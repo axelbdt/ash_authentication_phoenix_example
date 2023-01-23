@@ -17,6 +17,8 @@ config :ash_auth_phoenix_example, AshAuthPhoenixExampleWeb.Endpoint,
   pubsub_server: AshAuthPhoenixExample.PubSub,
   live_view: [signing_salt: "3TRtd1/r"]
 
+config :ash, :use_all_identities_in_manage_relationship?, false
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
