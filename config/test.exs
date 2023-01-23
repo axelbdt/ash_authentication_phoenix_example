@@ -8,8 +8,7 @@ config :ash_auth_phoenix_example, AshAuthPhoenixExampleWeb.Endpoint,
   server: false
 
 # In test we don't send emails.
-config :ash_auth_phoenix_example, AshAuthPhoenixExample.Mailer,
-  adapter: Swoosh.Adapters.Test
+config :ash_auth_phoenix_example, AshAuthPhoenixExample.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
@@ -19,3 +18,12 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :ash_auth_phoenix_example, AshAuthPhoenixExample.Repo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "ash_auth_phoenix_example_test",
+  port: 5432,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10

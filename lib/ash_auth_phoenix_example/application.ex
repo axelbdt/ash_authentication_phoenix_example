@@ -15,9 +15,10 @@ defmodule AshAuthPhoenixExample.Application do
       # Start Finch
       {Finch, name: AshAuthPhoenixExample.Finch},
       # Start the Endpoint (http/https)
-      AshAuthPhoenixExampleWeb.Endpoint
+      AshAuthPhoenixExampleWeb.Endpoint,
       # Start a worker by calling: AshAuthPhoenixExample.Worker.start_link(arg)
       # {AshAuthPhoenixExample.Worker, arg}
+      AshAuthPhoenixExample.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -19,6 +19,15 @@ config :ash_auth_phoenix_example, AshAuthPhoenixExampleWeb.Endpoint,
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
+config :ash_auth_phoenix_example, AshAuthPhoenixExample.Repo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "ash_auth_phoenix_example_dev",
+  port: 5432,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

@@ -1,5 +1,6 @@
 defmodule AshAuthPhoenixExample.Accounts.User do
-  use Ash.Resource
+  use Ash.Resource,
+    data_layer: AshPostgres.DataLayer
 
   actions do
     defaults [:create]
@@ -7,5 +8,10 @@ defmodule AshAuthPhoenixExample.Accounts.User do
 
   attributes do
     uuid_primary_key :id
+  end
+
+  postgres do
+    table "users"
+    repo AshAuthPhoenixExample.Repo
   end
 end
