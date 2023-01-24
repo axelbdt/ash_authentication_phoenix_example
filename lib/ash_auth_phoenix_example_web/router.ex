@@ -19,8 +19,10 @@ defmodule AshAuthPhoenixExampleWeb.Router do
   scope "/" do
     pipe_through :browser
     sign_in_route
-    sign_out_route AshAuthentication.Phoenix.Controller
-    auth_routes_for AshAuthPhoenixExample.Accounts.User, to: AshAuthentication.Phoenix.Controller
+    sign_out_route AshAuthPhoenixExampleWeb.AuthController
+
+    auth_routes_for AshAuthPhoenixExample.Accounts.User,
+      to: AshAuthPhoenixExampleWeb.AuthController
   end
 
   scope "/", AshAuthPhoenixExampleWeb do

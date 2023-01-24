@@ -45,6 +45,7 @@ defmodule AshAuthPhoenixExampleWeb do
 
       import Plug.Conn
       import AshAuthPhoenixExampleWeb.Gettext
+      alias AshAuthPhoenixExampleWeb.Router.Helpers, as: Routes
 
       unquote(verified_routes())
     end
