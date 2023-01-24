@@ -1,5 +1,6 @@
 defmodule AshAuthPhoenixExampleWeb.Router do
   use AshAuthPhoenixExampleWeb, :router
+  use AshAuthentication.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -8,10 +9,18 @@ defmodule AshAuthPhoenixExampleWeb.Router do
     plug :put_root_layout, {AshAuthPhoenixExampleWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :load_from_session
   end
 
   pipeline :api do
     plug :accepts, ["json"]
+  end
+
+  scope "/" do
+    pipe_through :browser
+    sign_in_route
+    sign_out_route AshAuthentication.Phoenix.Controller
+    auth_routes_for AshAuthPhoenixExample.Accounts.User, to: AshAuthentication.Phoenix.Controller
   end
 
   scope "/", AshAuthPhoenixExampleWeb do
