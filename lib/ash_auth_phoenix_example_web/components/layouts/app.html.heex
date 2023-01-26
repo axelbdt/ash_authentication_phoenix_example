@@ -14,24 +14,28 @@
       </p>
     </div>
     <div class="flex items-center gap-4">
+      <%= if @current_user do %>
       <a
         href="https://twitter.com/elixirphoenix"
         class="text-[0.8125rem] font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
       >
-        @elixirphoenix
+        Welcome <%= @current_user.email %>
       </a>
       <a
-        href="https://github.com/phoenixframework/phoenix"
-        class="text-[0.8125rem] font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
-      >
-        GitHub
-      </a>
-      <a
-        href="https://hexdocs.pm/phoenix/overview.html"
+        href="sign-out"
         class="rounded-lg bg-zinc-100 px-2 py-1 text-[0.8125rem] font-semibold leading-6 text-zinc-900 hover:bg-zinc-200/80 active:text-zinc-900/70"
       >
-        Get Started <span aria-hidden="true">&rarr;</span>
+      Sign out
       </a>
+      <% else %>
+      <a
+        href="sign-in"
+        class="rounded-lg bg-zinc-100 px-2 py-1 text-[0.8125rem] font-semibold leading-6 text-zinc-900 hover:bg-zinc-200/80 active:text-zinc-900/70"
+      >
+        Sign In
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+      <% end %>
     </div>
   </div>
 </header>
