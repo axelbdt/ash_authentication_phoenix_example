@@ -22,6 +22,17 @@ defmodule AshAuthPhoenixExample.Accounts.User do
         hashed_password_field :hashed_password
       end
     end
+
+    tokens do
+      enabled? true
+      token_resource AshAuthPhoenixExample.Accounts.Token
+
+      signing_secret(
+        Application.compile_env(:ash_auth_phoenix_example, AshAuthPhoenixExampleWeb.Endpoint)[
+          :secret_key_base
+        ]
+      )
+    end
   end
 
   identities do

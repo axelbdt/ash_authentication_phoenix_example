@@ -6,5 +6,6 @@ defmodule AshAuthPhoenixExample.Accounts.Registry do
 
   entries do
     entry AshAuthPhoenixExample.Accounts.User
+    entry AshAuthPhoenixExample.Accounts.Token
   end
 end
